@@ -68,8 +68,11 @@ char **get_arglist(char *current_cmd){
 			arglist[arg_num][i] = '\0';   //添加'\0'
 			
 		//	printf("%s\n", arglist[arg_num]);
-			if(cmd_buffer[i] == '\0')
+			if(cmd_buffer[i] == '\0'){
+				arglist[arg_num+1] = NULL;
 				return arglist;
+			}
+
 			
 			cmd_buffer = cmd_buffer+i+1;  //把指针移到空格后面那一字节
 			arg_num++;
